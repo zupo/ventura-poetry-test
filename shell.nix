@@ -5,10 +5,25 @@ let
     sha256 = "1pkms2l3fxhn4mpxmknkirbxzgvmhg5qz4mlgn12aqsn3mxf4ag4";
   };
   pkgs = import nixpkgs { config = { allowUnfree = true; }; };
-  env = pkgs.poetry2nix.mkPoetryEnv {
+
+  poetryOverrides = self: super: {
+    psutil = super.psutil.overrideAttrs (old: {
+      buildInputs = old.buildInputs or []
+        ++ pkgs.lib.optional pkgs.stdenv.isDarwin pkgs.darwin.IOKit;
+    });
+  };
+
+  commonPoetryArgs = {
+    overrides = [
+      pkgs.poetry2nix.defaultPoetryOverrides
+      poetryOverrides
+    ];
+  };
+
+  env = pkgs.poetry2nix.mkPoetryEnv ( commonPoetryArgs // {
     pyproject = ./pyproject.toml;
     poetrylock = ./poetry.lock;
-  };
+  });
 in
 
 pkgs.mkShell {
