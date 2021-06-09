@@ -1,6 +1,4 @@
-# Update
-
-With NixOS 21.05, the problem presented below has been fixed.
+# Update: with NixOS 21.05 the problem presented below has been fixed
 
 # Testing poetry2nix in nix-shell on Big Sur
 A repo to test nix-shell &amp; poetry2nix on Big Sur
