@@ -1,8 +1,8 @@
 let
   nixpkgs = builtins.fetchTarball {
-    # https://github.com/NixOS/nixpkgs/tree/nixos-20.09 on 2020-12-19
-    url = "https://github.com/nixos/nixpkgs/archive/7d57790bc12edaa8cbb76c38b28b59535492864e.tar.gz";
-    sha256 = "1pkms2l3fxhn4mpxmknkirbxzgvmhg5qz4mlgn12aqsn3mxf4ag4";
+    # https://github.com/NixOS/nixpkgs/tree/nixos-21.05 on 2021-06-09
+    url = "https://github.com/nixos/nixpkgs/archive/5de44c15758465f8ddf84d541ba300b48e56eda4.tar.gz";
+    sha256 = "sha256:05darjv3zc5lfqx9ck7by6p90xgbgs1ni6193pw5zvi7xp2qlg4x";
   };
   pkgs = import nixpkgs { config = { allowUnfree = true; }; };
 
