@@ -7,10 +7,6 @@ let
   pkgs = import nixpkgs { config = { allowUnfree = true; }; };
 
   poetryOverrides = self: super: {
-    psutil = super.psutil.overrideAttrs (old: {
-      buildInputs = old.buildInputs or []
-        ++ pkgs.lib.optional pkgs.stdenv.isDarwin pkgs.darwin.IOKit;
-    });
   };
 
   commonPoetryArgs = {
