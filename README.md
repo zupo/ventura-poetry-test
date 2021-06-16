@@ -5,9 +5,17 @@ Use this repo to create MREs (minimal reproducible example) to showcase installa
 ## How to use
 
 ```bash
+# Install poetry
 $ git checkout --branch myexample
 $ nix-shell
+
+# Either
 $ poetry add <some_package>
+
+# Or manually edit pyproject.toml and then run
+$ poetry lock --no-update
+
+# Re-build nix-shell
 $ exit
 $ nix-shell
 ```
