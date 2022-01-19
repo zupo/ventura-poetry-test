@@ -1,21 +1,21 @@
-# Testing installing various Python packages with poetry2nix on Big Sur
+# Testing various features of poetry2nix on Big Sur
 
-Use this repo to create MREs (minimal reproducible example) to showcase installation problems of various Python packages with poetry2nix.
+Use this repo to create MREs (minimal reproducible example) to showcase various
+features and problems with poetry2nix.
 
 ## How to use
 
 ```bash
-# Install poetry
-$ git checkout --branch myexample
+# Enter nix-shell
 $ nix-shell
 
-# Either
-$ poetry add <some_package>
+# Try to import `trivial` package
+[nix-shell:~/work/big-sur-poetry-test]$ python -m trivial
+/nix/store/hpwbhg5pm8kxd93ar1dva1ixqhbz09n9-python3-3.9.6-env/bin/python3.9: No module named trivial
 
-# Or manually edit pyproject.toml and then run
-$ poetry lock --no-update
-
-# Re-build nix-shell
-$ exit
-$ nix-shell
+# Comment out docker-compose and try again
+[nix-shell:~/work/big-sur-poetry-test]$ exit
+$ nano shell.nix # comment out docker-compose
+[nix-shell:~/work/big-sur-poetry-test]$ python -m trivial
+Original
 ```

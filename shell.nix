@@ -9,23 +9,15 @@ let
     url = "https://github.com/nix-community/poetry2nix/archive/038ed56cc1222b8a6765389e0b7f11c18372da98.tar.gz";
   }) {
     pkgs = pkgs;
-    poetry = pkgs.poetry;
   };
 
-  poetryOverrides = self: super: {
-  };
-
-  commonPoetryArgs = {
-    overrides = [
-      poetry2nix.defaultPoetryOverrides
-      poetryOverrides
-    ];
-  };
-
-  env = poetry2nix.mkPoetryEnv ( commonPoetryArgs // {
+  env = poetry2nix.mkPoetryEnv {
     pyproject = ./pyproject.toml;
     poetrylock = ./poetry.lock;
-  });
+    editablePackageSources = {
+      trivial = ./src;
+    };
+  };
 in
 
 pkgs.mkShell {
@@ -33,6 +25,8 @@ pkgs.mkShell {
   buildInputs = [
     env
     pkgs.poetry
+
+    pkgs.docker-compose
   ];
 
 }
