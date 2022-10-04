@@ -1,12 +1,12 @@
 let
   nixpkgs = builtins.fetchTarball {
-    # https://status.nixos.org/ -> nixos-21.05 on 2022-01-19
-    url = "https://github.com/nixos/nixpkgs/archive/0fd9ee1aa36ce865ad273f4f07fdc093adeb5c00.tar.gz";
+    # https://status.nixos.org/ -> nixos-22.05 on 2022-10-04
+    url = "https://github.com/nixos/nixpkgs/archive/81a3237b64e67b66901c735654017e75f0c50943.tar.gz";
   };
   pkgs = import nixpkgs {};
   poetry2nix = import (fetchTarball {
-    # https://github.com/nix-community/poetry2nix/commits/master on 2022-01-19
-    url = "https://github.com/nix-community/poetry2nix/archive/038ed56cc1222b8a6765389e0b7f11c18372da98.tar.gz";
+    # https://github.com/nix-community/poetry2nix/commits/master on 2022-10-04
+    url = "https://github.com/nix-community/poetry2nix/archive/c2ee667d2fd19f70a9ac256b81f2cfc248c4f04d.tar.gz";
   }) {
     pkgs = pkgs;
   };
@@ -26,7 +26,7 @@ pkgs.mkShell {
     env
     pkgs.poetry
 
-    pkgs.docker-compose
+    # pkgs.docker-compose
   ];
 
 }
