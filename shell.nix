@@ -14,9 +14,9 @@ let
   env = poetry2nix.mkPoetryEnv {
     pyproject = ./pyproject.toml;
     poetrylock = ./poetry.lock;
-    editablePackageSources = {
-      trivial = ./src;
-    };
+    # editablePackageSources = {
+    #   trivial = ./src;
+    # };
   };
 in
 
@@ -25,8 +25,6 @@ pkgs.mkShell {
   buildInputs = [
     env
     pkgs.poetry
-
-    # pkgs.docker-compose
   ];
 
 }

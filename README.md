@@ -3,19 +3,19 @@
 Use this repo to create MREs (minimal reproducible example) to showcase various
 features and problems with poetry2nix.
 
-## How to use
+
+## Example: installing isort fails
 
 ```bash
 # Enter nix-shell
 $ nix-shell
+error: value is null while a set was expected
 
-# Try to import `trivial` package
-[nix-shell:~/work/monterey-poetry-test]$ python -m trivial
-/nix/store/hpwbhg5pm8kxd93ar1dva1ixqhbz09n9-python3-3.9.6-env/bin/python3.9: No module named trivial
+       at /nix/store/i3hrzfn5l4402xminf93mspv06llhggh-source/default.nix:140:19:
 
-# Comment out docker-compose and try again
-[nix-shell:~/work/monterey-poetry-test]$ exit
-$ nano shell.nix # comment out docker-compose
-[nix-shell:~/work/monterey-poetry-test]$ python -m trivial
-Original
-```
+          139|
+          140|       poetryPkg = poetry.override { inherit python; };
+             |                   ^
+          141|
+(use '--show-trace' to show detailed location information)
+

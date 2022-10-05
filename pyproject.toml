@@ -1,14 +1,15 @@
 [tool.poetry]
-name = "trivial"
+name = "monterey-poetry-test"
 version = "0.1.0"
-description = "poetry2nix test"
-authors = ["Your Name <you@example.com>"]
-packages = [
-  { include = "trivial", from = "src" },
-]
-
-[build-system]
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"
+description = ""
+authors = ["foo <foo@bar.com>"]
 
 [tool.poetry.dependencies]
+python = "^3.9"
+isort = "*"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
