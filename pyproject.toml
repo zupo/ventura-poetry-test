@@ -5,8 +5,9 @@ description = ""
 authors = ["foo <foo@bar.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
-isort = "*"
+python = "^3.10"
+
+datamodel-code-generator = "*"
 
 [tool.poetry.dev-dependencies]
 
