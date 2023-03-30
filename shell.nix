@@ -1,12 +1,12 @@
 let
   nixpkgs = builtins.fetchTarball {
-    # https://status.nixos.org/ -> nixos-22.11 on 2023-03-01
-    url = "https://github.com/nixos/nixpkgs/archive/b26d52c9feb6476580016e78935cbf96eb3e2115.tar.gz";
+    # https://status.nixos.org/ -> nixpkgs-unstable on 2023-03-30
+    url = "https://github.com/nixos/nixpkgs/archive/e608c90a1cf381dde6ac9e0f085337150f2af3e2.tar.gz";
   };
   pkgs = import nixpkgs {};
   poetry2nix = import (fetchTarball {
-    # https://github.com/nix-community/poetry2nix/commits/master on 2023-03-02
-    url = "https://github.com/nix-community/poetry2nix/archive/45babaf3f04aa1d53fa90e7ab9404360f7621919.tar.gz";
+    # https://github.com/nix-community/poetry2nix/commits/master on 2023-03-30
+    url = "https://github.com/nix-community/poetry2nix/archive/dc8c13ab88db829c1b71e6c794d1b295c8031408.tar.gz";
   }) {
     pkgs = pkgs;
   };
